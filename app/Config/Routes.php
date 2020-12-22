@@ -20,7 +20,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /**
  * --------------------------------------------------------------------
@@ -31,8 +31,25 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/admin','Admin::index');//['filter'=>'role:admin,superadmin']
+$routes->group('adminpanel',['filter'=>'role:admin'],function ($routes)
+{
+	if(!['filter'=>'role:admin']){
+		redirect('/');
+	}
+	$routes->get('/','Admin::index');
+	$routes->get('edit/(:num)','Admin::edit/$1');
+	$routes->get('delete/(:num)','Admin::deleteProduct/$1');
+	$routes->get('add','Admin::add');
+});
+$routes->group('userpanel',['filter'=>'role:guests'],function($routes){
+	if(!['filter'=>'role:guests']){
+		redirect('/');
+	}
+	$routes->get('/','OrderController::index');
+});
+//['filter'=>'role:admin,superadmin']
 $routes->get('/product/(:num)','Home::details/$1');
+// $routes->get('/testput/(:num)','Home::testupdate/$1');
 $routes->get('/order','Home::order');
 
 /**

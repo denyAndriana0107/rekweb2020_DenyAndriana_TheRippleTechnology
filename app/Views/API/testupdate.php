@@ -1,7 +1,7 @@
 <?=$this->extend('layout/template');?>
 <?=$this->section('content');?>  
  <h2>Add Produk</h2>
-<form action="https://phoneapideny.herokuapp.com/Phone" id="searchForm">
+<form action="http://localhost:3000/Phone" id="searchForm">
   <input type="text" name="nama" placeholder="Name" required></br>
   <input type="text" name="image" placeholder="link image" required></br>
   <input type="text" name="ram" placeholder="ram" required></br>
