@@ -9,7 +9,7 @@ class OrderModel extends Model
     protected $allowedFields=['id','nama_product','alamat','id_users'];
     protected $useTimestamps= true;
     
-    public function getOrderData($iduser){
-        $this->where(['id'=>$iduser])->findAll();
+    public function getOrderData($userid){
+        return $this->where('id_users',$userid)->findall();
     }
 }

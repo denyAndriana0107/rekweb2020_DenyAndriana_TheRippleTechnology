@@ -9,6 +9,7 @@ $( "#form" ).submit(function( event ) {
     var $form = $( this ),
       term = $form.find( "input[name='nama']" ).val(),
       term1 = $form.find( "input[name='image']" ).val(),
+      term5 = $form.find( "input[name='harga']" ).val(),
       term2 = $form.find( "input[name='ram']" ).val(),
       term3 = $form.find( "input[name='rom']" ).val(),
       term4 = $form.find( "textarea[name='deskripsi']" ).val(),
@@ -23,7 +24,7 @@ $( "#form" ).submit(function( event ) {
     "headers": {
       "Content-Type": "application/json"
     },
-    "data": JSON.stringify({"nama":term,"image":term1,"ram":term2,"rom":term3,"deskripsi":term4}),
+    "data": JSON.stringify({"nama":term,"image":term1,"harga":term5 ,"ram":term2,"rom":term3,"deskripsi":term4}),
   };
   
   $.ajax(settings).done(function (response) {

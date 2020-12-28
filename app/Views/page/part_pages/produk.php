@@ -22,6 +22,7 @@
                 <p class="sched-time">
                   <span><span class="fa fa-calendar"></span>RAM : <?=$data['ram']; ?> ROM : <?=$data['rom']; ?></span> <br>
                 </p>
+                <p>IDR : <?=$data['harga']; ?></p>
                 <br>
                 <p><a href="/product/<?= $data['id']; ?>" class="btn btn-primary btn-sm">Read More</a></p>
               </div>

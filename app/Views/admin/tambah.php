@@ -11,6 +11,10 @@
             <input type="text" class="form-control" name="image"     placeholder="linkImage" required>
         </div>
         <div class="form-group">
+            <label for="harga">Harga</label>
+            <input type="text" class="form-control" name="harga"  placeholder="harga" required>
+        </div>
+        <div class="form-group">
             <label for="ram">RAM</label>
             <input type="text" class="form-control" name="ram"       placeholder="ram"       required>
         </div>

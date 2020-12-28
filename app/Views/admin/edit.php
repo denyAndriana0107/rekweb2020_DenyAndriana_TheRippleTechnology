@@ -11,6 +11,10 @@
             <input type="text" class="form-control" name="image" value="<?=$result['image'];?>" placeholder="linkImage" required>
         </div>
         <div class="form-group">
+            <label for="image">Harga</label>
+            <input type="text" class="form-control" name="harga" value="<?=$result['harga'];?>" placeholder="harga" required>
+        </div>
+        <div class="form-group">
             <label for="ram">RAM</label>
             <input type="text" class="form-control" name="ram" value="<?=$result['ram'];?>"placeholder="ram" required>
         </div>

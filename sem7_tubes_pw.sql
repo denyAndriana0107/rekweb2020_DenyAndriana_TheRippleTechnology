@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2020 at 08:25 AM
+-- Generation Time: Dec 28, 2020 at 05:00 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -47,7 +47,8 @@ INSERT INTO `auth_activation_attempts` (`id`, `ip_address`, `user_agent`, `token
 (5, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', '162acce3d887d24ea121379156929fb5', '2020-12-19 19:05:36'),
 (6, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'd80401507bc05c403bb4f9c0476c01b1', '2020-12-19 19:16:35'),
 (7, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', '066b85eb76d4d2a2ee6e451b5688e826', '2020-12-21 21:10:21'),
-(8, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'a26caa18a8248983d5dedd220b75e633', '2020-12-22 01:18:18');
+(8, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', 'a26caa18a8248983d5dedd220b75e633', '2020-12-22 01:18:18'),
+(9, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36', '271eb0d3c394cff41e50c73efd320bd7', '2020-12-26 17:29:21');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,8 @@ CREATE TABLE `auth_groups_users` (
 --
 
 INSERT INTO `auth_groups_users` (`group_id`, `user_id`) VALUES
-(1, 14);
+(1, 14),
+(2, 15);
 
 -- --------------------------------------------------------
 
@@ -162,7 +164,15 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (35, '::1', 'guyasumka@gmail.com', 13, '2020-12-21 23:44:27', 1),
 (36, '::1', 'guyasumka@gmail.com', 13, '2020-12-21 23:52:44', 1),
 (37, '::1', 'denyandriana151298@gmail.com', 12, '2020-12-22 00:12:20', 1),
-(38, '::1', 'theripplea385@gmail.com', 14, '2020-12-22 01:19:27', 1);
+(38, '::1', 'theripplea385@gmail.com', 14, '2020-12-22 01:19:27', 1),
+(39, '::1', 'guyasumka@gmail.com', 15, '2020-12-26 17:29:34', 1),
+(40, '::1', 'guyasumka@gmail.com', 15, '2020-12-26 18:17:50', 1),
+(41, '::1', 'guyasumka@gmail.com', 15, '2020-12-26 21:31:20', 1),
+(42, '::1', 'theripplea385@gmail.com', 14, '2020-12-26 22:16:55', 1),
+(43, '::1', 'guyasumka@gmail.com', 15, '2020-12-26 22:42:07', 1),
+(44, '::1', 'guyasumka@gmail.com', 15, '2020-12-27 04:28:59', 1),
+(45, '::1', 'guyasumka@gmail.com', 15, '2020-12-27 16:14:04', 1),
+(46, '::1', 'guyasumka@gmail.com', 15, '2020-12-27 18:37:19', 1);
 
 -- --------------------------------------------------------
 
@@ -245,7 +255,8 @@ CREATE TABLE `migrations` (
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
 (1, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1608206981, 1),
-(2, '2020-12-18-054438', 'App\\Database\\Migrations\\Order', 'default', 'App', 1608271254, 2);
+(4, '2020-12-18-054438', 'App\\Database\\Migrations\\Order', 'default', 'App', 1609066037, 2),
+(5, '2020-12-22-015903', 'App\\Database\\Migrations\\Pembayaran', 'default', 'App', 1609066038, 2);
 
 -- --------------------------------------------------------
 
@@ -261,6 +272,40 @@ CREATE TABLE `order` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id`, `nama_product`, `alamat`, `id_users`, `created_at`, `updated_at`) VALUES
+(2, 'Realme 6 Pro', 'Jln.Tarikolot Majalengka, Kota Majalengka, Kode Pos : 45416, Provinsi Jawa Barat', 15, '2020-12-27 16:14:35', '2020-12-27 16:14:35'),
+(3, 'Samsung Galaxy Note 20 Ultra', 'Jln.Tarikolot Majalengka, Kota Majalengka, Kode Pos : 45416, Provinsi Jawa Barat', 15, '2020-12-27 19:42:44', '2020-12-27 19:42:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembayaran`
+--
+
+CREATE TABLE `pembayaran` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `total_harga` int(11) NOT NULL,
+  `metode_pembayaran` varchar(255) NOT NULL,
+  `bukti_pembayaran` varchar(255) NOT NULL,
+  `status_pembayaran` varchar(255) NOT NULL,
+  `id_order` int(11) UNSIGNED NOT NULL,
+  `id_users` int(11) UNSIGNED NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id`, `total_harga`, `metode_pembayaran`, `bukti_pembayaran`, `status_pembayaran`, `id_order`, `id_users`, `created_at`, `updated_at`) VALUES
+(1, 3415000, 'COD', '', 'pending', 2, 15, '2020-12-27 16:14:35', '2020-12-27 16:14:35'),
+(2, 2415000, 'Transfer', '', 'diproses', 3, 15, '2020-12-27 19:42:44', '2020-12-27 20:41:39');
 
 -- --------------------------------------------------------
 
@@ -291,7 +336,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(14, 'theripplea385@gmail.com', 'admin385', '$2y$10$FPbkJltH.Dnan3aebCG.QuyRodzEId370xv/cTkQBm7QFpbScMfGa', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-22 01:17:34', '2020-12-22 01:18:19', NULL);
+(14, 'theripplea385@gmail.com', 'admin385', '$2y$10$FPbkJltH.Dnan3aebCG.QuyRodzEId370xv/cTkQBm7QFpbScMfGa', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-22 01:17:34', '2020-12-22 01:18:19', NULL),
+(15, 'guyasumka@gmail.com', 'Deny12', '$2y$10$YK5NY2NuxXN3eyQAFU0l4e64zEShhfWby8X4lL9GAoWjmta8bVEAe', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2020-12-26 17:28:34', '2020-12-26 17:29:21', NULL);
 
 --
 -- Indexes for dumped tables
@@ -372,6 +418,14 @@ ALTER TABLE `order`
   ADD KEY `order_id_users_foreign` (`id_users`);
 
 --
+-- Indexes for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pembayaran_id_order_foreign` (`id_order`),
+  ADD KEY `pembayaran_id_users_foreign` (`id_users`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -387,7 +441,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `auth_groups`
@@ -399,7 +453,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -423,19 +477,25 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
@@ -473,6 +533,13 @@ ALTER TABLE `auth_users_permissions`
 --
 ALTER TABLE `order`
   ADD CONSTRAINT `order_id_users_foreign` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  ADD CONSTRAINT `pembayaran_id_order_foreign` FOREIGN KEY (`id_order`) REFERENCES `order` (`id`),
+  ADD CONSTRAINT `pembayaran_id_users_foreign` FOREIGN KEY (`id_users`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,6 @@
 <?=$this->extend('layout/template');?>
-<?=$this->section('content');?>  
+<?=$this->section('content');?>
+  
     <section class="slider_section">
         <div id="myCarousel" class="carousel slide banner-main" data-ride="carousel">
             <div class="carousel-inner">

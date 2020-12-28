@@ -45,13 +45,14 @@ $routes->group('userpanel',['filter'=>'role:guests'],function($routes){
 	if(!['filter'=>'role:guests']){
 		redirect('/');
 	}
-	$routes->get('/','OrderController::index');
+	$routes->get('/','UsersController::index');
+	
 });
 //['filter'=>'role:admin,superadmin']
 $routes->get('/product/(:num)','Home::details/$1');
 // $routes->get('/testput/(:num)','Home::testupdate/$1');
-$routes->get('/order','Home::order');
-
+$routes->post('/order','UsersController::save');
+$routes->post('/userpanel/upload/(:num)','UsersController::update/$1');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
