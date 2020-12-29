@@ -66,12 +66,9 @@
                 <td>
                   <div class="mt-1">
                     <div class="form-check form-check-inline pl-0">
-                      <!-- <input type="radio" class="form-check-input" id="COD" name="materialExampleRadios"
-                    checked> -->
                       <label class="form-check-label small text-uppercase card-link-secondary" for="small">1. COD</label>
                     </div>
                     <div class="form-check form-check-inline pl-0">
-                      <!-- <input type="radio" class="form-check-input" id="Transfer" name="materialExampleRadios"> -->
                       <label class="form-check-label small text-uppercase card-link-secondary" for="medium">2. Transfer</label>
                     </div>
                   </div>

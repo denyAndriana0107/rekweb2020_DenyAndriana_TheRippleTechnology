@@ -28,6 +28,7 @@
         </div>
         <input type="submit" value="Submit" class="btn btn-primary">
     </form>
+    <a href="/adminpanel"><button class="btn btn-success" style="margin-top: -64px;margin-left:100px;">Cancel</button></a>
 </div> 
     
 <script type="text/javascript" src="/js/adminadd.js"></script>

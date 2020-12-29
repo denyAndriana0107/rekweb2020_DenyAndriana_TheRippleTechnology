@@ -11,4 +11,7 @@ class PembayaranModel extends Model
     public function getPembayaranData($userid){
         return $this->where('pembayaran.id_users',$userid)->join('order','order.id=pembayaran.id_order')->findall();
     }
+    public function allPembayaran(){
+        return $this->join('order','order.id=pembayaran.id_order')->findAll();
+    }
 }

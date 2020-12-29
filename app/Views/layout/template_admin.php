@@ -9,7 +9,6 @@
     <title><?=$title ?></title>
 </head>
 <body>
-    <?= $this->include('layout/navbar_admin');?>
     <br>
     <?= $this->RenderSection('content');?>
     

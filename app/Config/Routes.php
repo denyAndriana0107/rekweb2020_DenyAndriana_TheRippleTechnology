@@ -31,6 +31,10 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/product/(:num)','Home::details/$1');
+$routes->get('/testview','UsersController::testview');
+// POST data
+$routes->post('/order','UsersController::save');
 $routes->group('adminpanel',['filter'=>'role:admin'],function ($routes)
 {
 	if(!['filter'=>'role:admin']){
@@ -40,19 +44,16 @@ $routes->group('adminpanel',['filter'=>'role:admin'],function ($routes)
 	$routes->get('edit/(:num)','Admin::edit/$1');
 	$routes->get('delete/(:num)','Admin::deleteProduct/$1');
 	$routes->get('add','Admin::add');
+	$routes->post('confirmOrder/(:num)','Admin::confirmOrder/$1');
 });
 $routes->group('userpanel',['filter'=>'role:guests'],function($routes){
 	if(!['filter'=>'role:guests']){
 		redirect('/');
 	}
 	$routes->get('/','UsersController::index');
-	
+	$routes->post('upload/(:num)','UsersController::update/$1');
 });
-//['filter'=>'role:admin,superadmin']
-$routes->get('/product/(:num)','Home::details/$1');
-// $routes->get('/testput/(:num)','Home::testupdate/$1');
-$routes->post('/order','UsersController::save');
-$routes->post('/userpanel/upload/(:num)','UsersController::update/$1');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing

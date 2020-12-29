@@ -30,7 +30,7 @@
                                         <li><?php if(logged_in()):?>
                                             <a class="nav-link" href="<?= base_url('/logout')?>">Logout</a>
                                             <?php else:?>
-                                            <a class="nav-link" href="<?= base_url('/login')?>">Login</a>
+                                            <a class="nav-link" href="<?= base_url('/userpanel')?>">Login</a>
                                             <?php endif;?>
                                         </li>
                                         <li class="last">
