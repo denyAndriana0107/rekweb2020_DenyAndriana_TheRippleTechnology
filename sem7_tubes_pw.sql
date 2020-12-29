@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2020 at 05:00 AM
+-- Generation Time: Dec 29, 2020 at 02:49 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -172,7 +172,14 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (43, '::1', 'guyasumka@gmail.com', 15, '2020-12-26 22:42:07', 1),
 (44, '::1', 'guyasumka@gmail.com', 15, '2020-12-27 04:28:59', 1),
 (45, '::1', 'guyasumka@gmail.com', 15, '2020-12-27 16:14:04', 1),
-(46, '::1', 'guyasumka@gmail.com', 15, '2020-12-27 18:37:19', 1);
+(46, '::1', 'guyasumka@gmail.com', 15, '2020-12-27 18:37:19', 1),
+(47, '::1', 'guyasumka@gmail.com', 15, '2020-12-28 10:29:41', 1),
+(48, '::1', 'theripplea385@gmail.com', 14, '2020-12-28 12:33:42', 1),
+(49, '::1', 'guyasumka@gmail.com', 15, '2020-12-28 16:38:53', 1),
+(50, '::1', 'theripplea385@gmail.com', NULL, '2020-12-28 17:34:05', 0),
+(51, '::1', 'theripplea385@gmail.com', 14, '2020-12-28 17:34:18', 1),
+(52, '::1', 'theripplea385@gmail.com', 14, '2020-12-28 18:45:27', 1),
+(53, '::1', 'theripplea385@gmail.com', 14, '2020-12-28 18:46:23', 1);
 
 -- --------------------------------------------------------
 
@@ -279,7 +286,8 @@ CREATE TABLE `order` (
 
 INSERT INTO `order` (`id`, `nama_product`, `alamat`, `id_users`, `created_at`, `updated_at`) VALUES
 (2, 'Realme 6 Pro', 'Jln.Tarikolot Majalengka, Kota Majalengka, Kode Pos : 45416, Provinsi Jawa Barat', 15, '2020-12-27 16:14:35', '2020-12-27 16:14:35'),
-(3, 'Samsung Galaxy Note 20 Ultra', 'Jln.Tarikolot Majalengka, Kota Majalengka, Kode Pos : 45416, Provinsi Jawa Barat', 15, '2020-12-27 19:42:44', '2020-12-27 19:42:44');
+(3, 'Samsung Galaxy Note 20 Ultra', 'Jln.Tarikolot Majalengka, Kota Majalengka, Kode Pos : 45416, Provinsi Jawa Barat', 15, '2020-12-27 19:42:44', '2020-12-27 19:42:44'),
+(4, 'Samsung Galaxy Note 20 Ultra', 'Jln.Tarikolot Majalengka, Kota Majalengka, Kode Pos : 434324, Provinsi Jawa Barat', 15, '2020-12-28 12:27:57', '2020-12-28 12:27:57');
 
 -- --------------------------------------------------------
 
@@ -304,8 +312,9 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id`, `total_harga`, `metode_pembayaran`, `bukti_pembayaran`, `status_pembayaran`, `id_order`, `id_users`, `created_at`, `updated_at`) VALUES
-(1, 3415000, 'COD', '', 'pending', 2, 15, '2020-12-27 16:14:35', '2020-12-27 16:14:35'),
-(2, 2415000, 'Transfer', '', 'diproses', 3, 15, '2020-12-27 19:42:44', '2020-12-27 20:41:39');
+(1, 3415000, 'COD', '1609197961_bbaf6f1ae9cf0fffac7d.jpg', 'Dikirim', 2, 15, '2020-12-27 16:14:35', '2020-12-28 19:42:52'),
+(2, 2415000, 'Transfer', '1609178900_536aa1fd2df0ef87ac5d.jpg', 'Dikirim', 3, 15, '2020-12-27 19:42:44', '2020-12-28 18:47:40'),
+(3, 2415000, 'COD', '1609180271_3be276949889d40f708f.jpg', 'Dikirim', 4, 15, '2020-12-28 12:27:57', '2020-12-28 18:47:20');
 
 -- --------------------------------------------------------
 
@@ -453,7 +462,7 @@ ALTER TABLE `auth_groups`
 -- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `auth_permissions`
@@ -483,13 +492,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
